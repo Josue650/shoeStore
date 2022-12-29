@@ -1,17 +1,17 @@
 const express = require('express')
 const router = express.Router()
-const { dataController, apiController } = require('../../controllers/api/fruits')
+const { dataController, apiController } = require('../../controllers/api/shoes')
 
 // add routes
-// Index /api/fruits
+// Index /api/shoes
 router.get('/', dataController.index, apiController.index)
-// Delete /api/fruits/:id
+// Delete /api/shoes/:id
 router.delete('/:id', dataController.destroy, apiController.show)
-// Update /api/fruits/:id
+// Update /api/shoes/:id
 router.put('/:id', dataController.update, apiController.show)
-// Create /api/fruits
+// Create /api/shoes
 router.post('/', dataController.create, apiController.show)
-// Show /api/fruits/:id
+// Show /api/shoes/:id
 router.get('/:id', dataController.show, apiController.show)
 
 

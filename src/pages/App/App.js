@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 import AuthPage from '../AuthPage/AuthPage';
 import NewOrderPage from '../NewOrderPage/NewOrderPage';
 import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
-import { Routes, Route} from 'react-router-dom'
+import ShoesPage from '../ShoesPage/ShoesPage';
 import NavBar from '../../components/NavBar/NavBar';
+import { Routes, Route} from 'react-router-dom'
 
 function App() {
   const [state, setState] = useState(null)
@@ -28,19 +29,19 @@ function App() {
       {
         user ?
         <>
-        <NavBar />
-        <Routes>
-          <Route path="/orders/new" element={<NewOrderPage />} />
-          <Route path="/orders" element={<OrderHistoryPage />} />
-
-        </Routes>
+          <NavBar />
+          <Routes>
+            <Route path="/shoes" element={<ShoesPage />} />
+            <Route path="/orders/new" element={<NewOrderPage />} />
+            <Route path="/orders" element={<OrderHistoryPage/>} />
+            <Route path="/" element={<NewOrderPage />}/>
+          </Routes>
         </>
          :
-        <AuthPage/>
-
+        <AuthPage setUser={setUser}/>
       }
     </main>
   );
 }
 
-export default App;
+export default App
